@@ -38,7 +38,7 @@
 
 ## 参与贡献
 
-欢迎提 Issue 和 Pull Request。第一版保持小而精：一个网站、一种格式，先做好。
+欢迎提 Issue 和 Pull Request。
 
 ## 开源协议
 
