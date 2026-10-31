@@ -4,12 +4,14 @@ Export your own AI chat conversation to a clean Markdown file, with one click, l
 
 **No account. No API key. No data sent anywhere.** The extension only reads the conversation already open in your tab and downloads a `.md` file to your computer.
 
-## What it does in v0.1.0
+## What it does in v0.1.7
 
 - One-click export from a ChatGPT conversation to Markdown
-- Keeps code blocks as fenced code blocks
+- Keeps code blocks as fenced code blocks, and tables as Markdown tables
 - File name comes from the chat title
+- Clean output: no plugin credit or notes added to the exported file, and common page UI labels are filtered out
 - Works fully offline, after the page has loaded
+
 
 ## Install it locally (no store needed yet)
 
