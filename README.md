@@ -1,45 +1,51 @@
 # AI Chat to Markdown
 
-Export your own AI chat conversation to a clean Markdown file, with one click, locally in your browser.
+一键把你自己的 AI 对话导出成干净的 Markdown 文件，全部在浏览器本地完成。
 
-**No account. No API key. No data sent anywhere.** The extension only reads the conversation already open in your tab and downloads a `.md` file to your computer.
+**不用注册账号，不用 API Key，不会把你的对话发到任何地方。** 插件只读取你当前打开的那个对话页面，然后把 `.md` 文件下载到你的电脑上。
 
-## What it does in v0.1.7
+## v0.1.7 能做什么
 
-- One-click export from a ChatGPT conversation to Markdown
-- Keeps code blocks as fenced code blocks, and tables as Markdown tables
-- File name comes from the chat title
-- Clean output: no plugin credit or notes added to the exported file, and common page UI labels are filtered out
-- Works fully offline, after the page has loaded
+- 一键从 ChatGPT 对话导出 Markdown
+- 代码块保留为围栏代码块，表格保留为真正的 Markdown 表格
+- 文件名取自对话标题
+- 导出结果很干净：不会在文件里加插件署名和说明，也会过滤掉页面上的常见界面文字，比如“升级订阅”“分享”“记忆已更新”
+- 页面加载完之后，全程离线可用
 
+## 怎么安装（不用去应用商店）
 
-## Install it locally (no store needed yet)
+1. 先下载这个仓库：打开仓库首页，点绿色 **Code** 按钮，点 **Download ZIP**，下载完解压
+2. 打开 Chrome，到 `chrome://extensions`
+3. 右上角打开 **开发者模式**
+4. 点 **加载未打包的扩展程序**
+5. 选择解压出来的文件夹，里面要能直接看到 `manifest.json` 才对
+6. 打开一个 ChatGPT 对话，点插件图标，点 **Export to Markdown**
+7. 导出的 `.md` 文件就在你的下载文件夹里
 
-1. Open Chrome and go to `chrome://extensions`
-2. Turn on **Developer mode** (top right)
-3. Click **Load unpacked**
-4. Select this folder (`ai-chat-to-markdown`)
-5. Open a ChatGPT conversation, click the extension icon, click **Export to Markdown**
-6. Find the `.md` file in your Downloads folder
+如果提示“No conversation turns found”，先刷新一次对话页面，往下滚一滚让对话加载出来，再点一次导出。
 
-If it says "No conversation turns found", reload the chat page once, scroll so the conversation loads, and try again.
+## 后续计划
 
-## Roadmap
+- [ ] Gemini 适配
+- [ ] Claude 适配
+- [ ] 自定义文件名 / 带上时间
+- [ ] 只导出选中的消息
+- [ ] 上架 Chrome Web Store
 
-- [ ] Gemini adapter
-- [ ] Claude adapter
-- [ ] Choose file name / include timestamps
-- [ ] Export only selected messages
-- [ ] Publish to the Chrome Web Store
+## 隐私
 
-## Privacy
+这个插件不会收集、保存或传输你的对话内容、账号信息、密码或 API Key，所有处理都在你自己的浏览器标签页里完成。
 
-This extension does not collect, store, or transmit your conversations, account information, passwords, or API keys. Everything happens in your browser tab.
+## 参与贡献
 
-## Contributing
+欢迎提 Issue 和 Pull Request。第一版保持小而精：一个网站、一种格式，先做好。
 
-Issues and pull requests are welcome. Please keep the first version small: one site, one format, done well.
+## 开源协议
 
-## License
+MIT — 见 `LICENSE`。
 
-MIT — see `LICENSE`.
+---
+
+## English (brief)
+
+Export your own AI chat conversation to a clean Markdown file, locally in your browser. No account, no API key, no data sent anywhere. Install: download this repo as ZIP, unzip it, go to `chrome://extensions`, turn on Developer mode, Load unpacked, and select the folder containing `manifest.json`.
