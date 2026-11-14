@@ -1,0 +1,42 @@
+name: Validate extension manifest
+
+on:
+  push:
+    paths:
+      - "manifest.json"
+      - ".github/workflows/validate.yml"
+  pull_request:
+    paths:
+      - "manifest.json"
+      - ".github/workflows/validate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manifest JSON
+        run: python -m json.tool manifest.json > /dev/null
+      - name: Check Manifest V3 and referenced files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(Path("manifest.json").read_text(encoding="utf-8"))
+          assert manifest.get("manifest_version") == 3, "manifest_version must be 3"
+          for key in ("default_popup",):
+              value = manifest.get("action", {}).get(key)
+              if value:
+                  assert Path(value).is_file(), f"Missing action file: {value}"
+          for item in manifest.get("content_scripts", []):
+              for value in item.get("js", []) + item.get("css", []):
+                  assert Path(value).is_file(), f"Missing content script/style: {value}"
+          for value in manifest.get("icons", {}).values():
+              assert Path(value).is_file(), f"Missing icon: {value}"
+          print("Manifest is valid and referenced files exist.")
+          PY
